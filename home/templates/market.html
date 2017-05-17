@@ -10,20 +10,24 @@
 	<div class="container one space">
 		<div class="row">
 		<h1 class="text-center"><u> Trending Now | Demand </u></h1><br><br>
+		{% for products in product %}
 			<div class="col-md-3">
 				<div class="market text-center">
-		 	 		<h4 class="text-center">Woolen Sweater</h4>
+				
+		 	 		<h4 class="text-center">{{ products.name}}</h4>
 		 	 		<div class="text-center">
-		 	 			<img src="{%static 'images/sweater1.jpg' %}" class="markThumb" alt="Woolen Sweater">
+		 	 			<img src="{{ products.image.url}}" class="markThumb" >
 		 	 		</div>
-		 	 		<li><strong>Demand: </strong>10 pcs/</li>
-		 	 		<li><STRONG>Price: </STRONG><button type="button" class="btn btn-info"> <strong>Rs:4,000/</strong> </button></li>
-		 	 		<strong>Company : Saili Silai Udhyog, Khumaltar,Lalitpur</strong>
+		 	 		
+		 	 		<li><STRONG>Quantity:{{ products.quantity }} </STRONG><button type="button" class="btn btn-info"> <strong>Price:{{ products.price }}</strong> </button></li>
+		 	 		<strong>Description:{{ products.description }}</strong>
 		 	 		<br>
-		 	 		<button type="button" class="btn btn-danger dang"> <a href="#"><strong>Contact Supplier</strong></a> </button>
-		 	 	</div>
+		 	 		<button type="button" class="btn btn-danger dang"> <a href="#"><strong>Contact Us</strong></a> </button>
+		 	 		
+		 	 	</div><br>
 			</div>
-			<div class="col-md-3">
+			{% endfor %}
+			<!-- <div class="col-md-3">
 				<div class="market text-center">
 		 	 		<h4 class="text-center">Handmade Carpet</h4>
 		 	 		<div class="text-center">
@@ -117,10 +121,10 @@
 		 	 		<button type="button" class="btn btn-danger dang"> <a href="#"><strong>Contact Supplier</strong></a> </button>
 		 	 	</div>
 			</div>
-		</div>
+		</div> -->
 	</div>
 </div>
-<div class="container-fluid space">
+<!-- <div class="container-fluid space">
 	<div class="container one space">
 		<div class="row">
 		<h1 class="text-center"><u> Handmade Industry </u></h1><br><br>
@@ -165,7 +169,7 @@
 			</div>
 		</div>
 	</div>
-</div>
+</div> -->
 <div class="container-fluid space two">
 	
 	<div class="container one">
