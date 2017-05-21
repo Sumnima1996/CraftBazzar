@@ -1,175 +1,51 @@
 {% load staticfiles %}
+{% load widget_tweaks %}
 <!doctype html>
 <html class="no-js" lang="en">
    {% include 'head.html' %}
     <body>
  
  {% include 'navbar.html' %}
+ <form method="get">
+ <div class="row">
+        <div class="form-group col-sm-12">
+          {{ filter.form.catagories.label_tag }}
+          {% render_field filter.form.catagories class="form-control" %}
+        </div>
+        <button type="submit" class="btn btn-primary ">
+        <span class="glyphicon glyphicon-search"></span> Search
+      </button>
+      </div>
+      </form>
  
 <div class="container-fluid">
 	<div class="container one space">
 		<div class="row">
-		<h1 class="text-center"><u> Trending Now | Demand </u></h1><br><br>
-		{% for products in product %}
+		<h1 class="text-center"><u > Trending Now | Demand </u></h1><br><br>
+		{% for filter in filter.qs %}
 			<div class="col-md-3">
 				<div class="market text-center">
 				
-		 	 		<h4 class="text-center">{{ products.name}}</h4>
+		 	 		<h4 class="text-center">{{ filter.name}}</h4>
 		 	 		<div class="text-center">
-		 	 			<img src="{{ products.image.url}}" class="markThumb" >
+		 	 			<img src="{{ filter.image.url}}" class="markThumb" >
 		 	 		</div>
 		 	 		
-		 	 		<li><STRONG>Quantity:{{ products.quantity }} </STRONG><button type="button" class="btn btn-info"> <strong>Price:{{ products.price }}</strong> </button></li>
-		 	 		<strong>Description:{{ products.description }}</strong>
+		 	 		
+		 	 		<button type="button" class="btn btn-info"> 
+		 	 		<strong>Price:{{ filter.price }}</strong> </button>
+		 	 		<li><STRONG>Quantity:{{ filter.quantity }} </STRONG></li>
+		 	 		<li><strong>Description:{{ filter.description }}</strong></li>
 		 	 		<br>
-		 	 		<button type="button" class="btn btn-danger dang"> <a href="#"><strong>Contact Us</strong></a> </button>
+		 	 		<button type="button" class="btn btn-danger dang" style="background-color:#5cb85c;border-color: #5cb85c;"> <a href="#"><strong>Contact Us</strong></a> </button>
 		 	 		
 		 	 	</div><br>
 			</div>
 			{% endfor %}
-			<!-- <div class="col-md-3">
-				<div class="market text-center">
-		 	 		<h4 class="text-center">Handmade Carpet</h4>
-		 	 		<div class="text-center">
-		 	 			<img src="{% static 'images/carpet.jpg' %}" class="markThumb" alt="Woolen Sweater">
-		 	 		</div>
-		 	 		<li><strong>Demand: </strong>10 pcs/</li>
-		 	 		<li><STRONG>Price: </STRONG><button type="button" class="btn btn-info"> <strong>Rs:4,000/</strong> </button></li>
-		 	 		<strong>Company : Saili Silai Udhyog, Khumaltar,Lalitpur</strong>
-		 	 		<br>
-		 	 		<button type="button" class="btn btn-danger dang"> <a href="#"><strong>Contact Supplier</strong></a> </button>
-		 	 	</div>
-			</div>
-			<div class="col-md-3">
-				<div class="market text-center">
-		 	 		<h4 class="text-center">Woolen Sweater</h4>
-		 	 		<div class="text-center">
-		 	 			<img src="{% static 'images/sweater.jpg' %}" class="markThumb" alt="Woolen Sweater">
-		 	 		</div>
-		 	 		<li><strong>Demand: </strong>10 pcs/</li>
-		 	 		<li><STRONG>Price: </STRONG><button type="button" class="btn btn-info"> <strong>Rs:4,000/</strong> </button></li>
-		 	 		<strong>Company : Saili Silai Udhyog, Khumaltar,Lalitpur</strong>
-		 	 		<br>
-		 	 		<button type="button" class="btn btn-danger dang"> <a href="#"><strong>Contact Supplier</strong></a> </button>
-		 	 	</div>
-			</div>
-			<div class="col-md-3">
-				<div class="market text-center">
-		 	 		<h4 class="text-center">Copper Pot | Homemade</h4>
-		 	 		<div class="text-center">
-		 	 			<img src="{% static 'images/pot.jpg' %}" class="markThumb" alt="Woolen Sweater">
-		 	 		</div>
-		 	 		<li><strong>Demand: </strong>10 pcs/</li>
-		 	 		<li><STRONG>Price: </STRONG><button type="button" class="btn btn-info"> <strong>Rs:4,000/</strong> </button></li>
-		 	 		<strong>Company : Saili Silai Udhyog, Khumaltar,Lalitpur</strong>
-		 	 		<br>
-		 	 		<button type="button" class="btn btn-danger dang"> <a href="#"><strong>Contact Supplier</strong></a> </button>
-		 	 	</div>
-			</div>
-		</div>
-		<div class="row space">
-		
-			<div class="col-md-3">
-				<div class="market text-center">
-		 	 		<h4 class="text-center">Mehendi Design | Products</h4>
-		 	 		<div class="text-center">
-		 	 			<img src="{% static 'images/mehendi.jpg' %}" class="markThumb" alt="Woolen Sweater">
-		 	 		</div>
-		 	 		<li><strong>Demand: </strong>10 pcs/</li>
-		 	 		<li><STRONG>Price: </STRONG><button type="button" class="btn btn-info"> <strong>Rs:4,000/</strong> </button></li>
-		 	 		<strong>Company : Saili Silai Udhyog, Khumaltar,Lalitpur</strong>
-		 	 		<br>
-		 	 		<button type="button" class="btn btn-danger dang"> <a href="#"><strong>Contact Supplier</strong></a> </button>
-		 	 	</div>
-			</div>
-			<div class="col-md-3">
-				<div class="market text-center">
-		 	 		<h4 class="text-center">Handmade | Dolls</h4>
-		 	 		<div class="text-center">
-		 	 			<img src="{% static 'images/doll.jpg' %}" class="markThumb" alt="Woolen Sweater">
-		 	 		</div>
-		 	 		<li><strong>Demand: </strong>10 pcs/</li>
-		 	 		<li><STRONG>Price: </STRONG><button type="button" class="btn btn-info"> <strong>Rs:4,000/</strong> </button></li>
-		 	 		<strong>Company : Saili Silai Udhyog, Khumaltar,Lalitpur</strong>
-		 	 		<br>
-		 	 		<button type="button" class="btn btn-danger dang"> <a href="#"><strong>Contact Supplier</strong></a> </button>
-		 	 	</div>
-			</div>
-			<div class="col-md-3">
-				<div class="market text-center">
-		 	 		<h4 class="text-center">Painting | Tangka</h4>
-		 	 		<div class="text-center">
-		 	 			<img src="{% static 'images/tankha.jpg' %}" class="markThumb" alt="Woolen Sweater">
-		 	 		</div>
-		 	 		<li><strong>Demand: </strong>10 pcs/</li>
-		 	 		<li><STRONG>Price: </STRONG><button type="button" class="btn btn-info"> <strong>Rs:4,000/</strong> </button></li>
-		 	 		<strong>Company : Saili Silai Udhyog, Khumaltar,Lalitpur</strong>
-		 	 		<br>
-		 	 		<button type="button" class="btn btn-danger dang"> <a href="#"><strong>Contact Supplier</strong></a> </button>
-		 	 	</div>
-			</div>
-			<div class="col-md-3">
-				<div class="market text-center">
-		 	 		<h4 class="text-center">Handmade Utensils</h4>
-		 	 		<div class="text-center">
-		 	 			<img src="{% static 'images/handmadeutensils.jpg' %}" class="markThumb" alt="Woolen Sweater">
-		 	 		</div>
-		 	 		<li><strong>Demand: </strong>10 set/</li>
-		 	 		<li><STRONG>Price: </STRONG><button type="button" class="btn btn-info"> <strong>Rs:4,000/</strong> </button></li>
-		 	 		<strong>Company : Saili Silai Udhyog, Khumaltar,Lalitpur</strong>
-		 	 		<br>
-		 	 		<button type="button" class="btn btn-danger dang"> <a href="#"><strong>Contact Supplier</strong></a> </button>
-		 	 	</div>
-			</div>
-		</div> -->
+
 	</div>
 </div>
-<!-- <div class="container-fluid space">
-	<div class="container one space">
-		<div class="row">
-		<h1 class="text-center"><u> Handmade Industry </u></h1><br><br>
-			<div class="col-md-4">
-				<div class="market text-center">
-		 	 		<h4 class="text-center">Woolen Sweater</h4>
-		 	 		<div class="text-center">
-		 	 			<img src="{% static 'images/sweater1.jpg' %}" class="markThumb" alt="Woolen Sweater">
-		 	 		</div>
-		 	 		<li><strong>Demand: </strong>10 pcs/</li>
-		 	 		<li><STRONG>Price: </STRONG><button type="button" class="btn btn-info"> <strong>Rs:4,000/</strong> </button></li>
-		 	 		<strong>Company : Saili Silai Udhyog, Khumaltar,Lalitpur</strong>
-		 	 		<br>
-		 	 		<button type="button" class="btn btn-danger dang"> <a href="#"><strong>Contact Supplier</strong></a> </button>
-		 	 	</div>
-			</div>
-			<div class="col-md-4">
-				<div class="market text-center">
-		 	 		<h4 class="text-center">Handmade Carpet</h4>
-		 	 		<div class="text-center">
-		 	 			<img src="{% static 'images/carpet.jpg' %}" class="markThumb" alt="Woolen Sweater">
-		 	 		</div>
-		 	 		<li><strong>Demand: </strong>10 pcs/</li>
-		 	 		<li><STRONG>Price: </STRONG><button type="button" class="btn btn-info"> <strong>Rs:4,000/</strong> </button></li>
-		 	 		<strong>Company : Saili Silai Udhyog, Khumaltar,Lalitpur</strong>
-		 	 		<br>
-		 	 		<button type="button" class="btn btn-danger dang"> <a href="#"><strong>Contact Supplier</strong></a> </button>
-		 	 	</div>
-			</div>
-			<div class="col-md-4">
-				<div class="market text-center">
-		 	 		<h4 class="text-center">Copper Pot | Homemade</h4>
-		 	 		<div class="text-center">
-		 	 			<img src="{% static 'images/pot.jpg' %}" class="markThumb" alt="Woolen Sweater">
-		 	 		</div>
-		 	 		<li><strong>Demand: </strong>10 pcs/</li>
-		 	 		<li><STRONG>Price: </STRONG><button type="button" class="btn btn-info"> <strong>Rs:4,000/</strong> </button></li>
-		 	 		<strong>Company : Saili Silai Udhyog, Khumaltar,Lalitpur</strong>
-		 	 		<br>
-		 	 		<button type="button" class="btn btn-danger dang"> <a href="#"><strong>Contact Supplier</strong></a> </button>
-		 	 	</div>
-			</div>
-		</div>
-	</div>
-</div> -->
+
 <div class="container-fluid space two">
 	
 	<div class="container one">

@@ -1,7 +1,8 @@
      {% load staticfiles %}
        <header class="header">
                 
-            <div class="mainmenu-area" id="menu-fixed" style=" background-color: #29293d;  height:100px;">
+            <div class="mainmenu-area" id="menu-fixed" style=" background-color: #29293d;  height:100px; 
+            opacity:0.8;">
                 <div class="container">
                     <div class="row">
                     
@@ -20,25 +21,30 @@
 
                                 <div >
                                   <ul class="nav navbar-nav" ">
+
                                     <li >
                                       <a href="{% url 'home' %}" style="color:white; padding-top:40px; padding-left: 100px; ">HOME</a>
                                      
                                     </li>               
+                                  
                                     <li class="#">
+                                      <a href="{% url 'filter:product-filter' %}" style="color:white; padding-top:40px;"><span>MARKET</span></a>
+                                      </li>
+
+                                        <li class="#">
                                       <a href="{% url 'project' %}" style="color:white; padding-top:40px;" >PROJECT</a>
                               
                                     </li>
-                                    <li class="#">
-                                      <a href="{% url 'market' %}" style="color:white; padding-top:40px;"><span>MARKET</span></a>
                                 
+                                      
                                     <li class="#">
-                                      <a href="{% url 'volunteer' %}" style="color:white; padding-top:40px;"><span>VOLUNTEER</span></a>
-                             
-                                    </li>     
-                                    <li class="#">
-                                      <a href="{% url 'training' %}" style="color:white;padding-top:40px;"><span>TRANNING</span></a>
+                                      <a href="{% url 'training' %}" style="color:white;padding-top:40px;"><span>TRAINING</span></a>
                                       
                                     </li>
+                                      <li class="#">
+                                      <a href="{% url 'volunteer' %}" style="color:white; padding-top:40px;"><span>VOLUNTEER</span></a>
+                             
+                                    </li> 
                                     <li><a href="{% url 'contact' %}" style="color:white; padding-top:40px;"><span>Contact</span></a></li>
                                  
 

@@ -21,7 +21,7 @@ u:after {
     bottom: -4px;
     border-width: 0 0 2px ;
     border-style: solid;
-    border-color: orange;
+    border-color: #29293d;
 }
 
  .market a, .market a:hover
@@ -230,7 +230,7 @@ header {
 }
 .vol h3
 {
-	color: orange;
+	color: #29293d;
 }
 .vol h4
 {
@@ -272,7 +272,7 @@ header {
 }
 
 .vv h4{
-	color: orange;
+	color:#29293d;
 }
 
 .rleft , .rright{

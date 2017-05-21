@@ -1,12 +1,12 @@
 from django.conf.urls import url
-from .views import (market,volunteer,home,contact,projects,Knitting,
+from .views import (ProductListView,volunteer,home,contact,projects,Knitting,
 SupplierFormView, ContactSupplier,training,trainingdetail)
 
 
 
 urlpatterns = [
 	url(r'^$',home, name='home'),
-    url(r'^market/$',market, name='market'),
+    url(r'^market/$',ProductListView.as_view(), name='market'),
     
     url(r'^volunteer/$',volunteer, name='volunteer'),
     url(r'^training/$',training, name='training'),

@@ -42,6 +42,8 @@ INSTALLED_APPS = [
     'filter',
     'authentication',
     'product',
+
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -126,3 +128,4 @@ STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+ALLOWED_SIGNUP_DOMAINS =['*']
