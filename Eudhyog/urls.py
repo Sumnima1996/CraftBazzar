@@ -22,6 +22,10 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'',include('home.urls')),
     url(r'',include('product.urls')),
+    url(r'^forum/',include('forum.urls')),
+    url(r'^filter/',include('filter.urls',namespace='filter')),
+    url(r'^account/',include('authentication.urls')),
+
 
 
 

@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, FormView
-
+from product.models import Product
 from .models import Supplier
+from django.views.generic.list import ListView
 
 from .supplyforms import SupplierForm
 
@@ -11,9 +12,14 @@ def home(request):
 	template_name='index.html'
 	return render(request,template_name)
 
-def market(request):
+class ProductListView(ListView):
+	model=Product
 	template_name='market.html'
-	return render(request,template_name)
+
+	def get_context_data(self,**kwargs):
+		context=super(ProductListView,self).get_context_data(*kwargs)
+		context['product']=Product.objects.all()
+		return context
 
 
 
@@ -73,3 +79,5 @@ class ContactSupplier(TemplateView):
 
 def trainingdetail(request):
 	return render (request, 'train_detail.html')
+
+
